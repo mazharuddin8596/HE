@@ -1,0 +1,21 @@
+SEVERE http://www.celigo.com/customer-compass 260:28 Uncaught TypeError: jQuery(...).bxSlider is not a function
+SEVERE http://www.celigo.com/customer-compass 795:5 Uncaught ReferenceError: jQueryCollapse is not defined
+SEVERE javascript 1:56 Uncaught TypeError: Cannot set property 'innerHTML' of null
+WARNING https://system.na1.netsuite.com/javascript/NLUtil.js?NS_VER=2016.1.0&minver=39 4054:18 Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 45:14 %c%s - %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 48:14 %c%s - %s %s
+INFO https://celigo-secure-resources.s3.amazonaws.com/celigo-secure-resources/googlesync/gmailhybrid/staging/app/scripts/core/services/LogService.js 37:14 %c%s - %s

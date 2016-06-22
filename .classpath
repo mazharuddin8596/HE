@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="Lib/testng-6.8.21-sources.jar"/>
+	<classpathentry kind="lib" path="Lib/jxl-2.6.12-sources.jar"/>
+	<classpathentry kind="lib" path="Lib/selenium-server-standalone-2.48.2.jar"/>
+	<classpathentry kind="lib" path="Lib/org.json.jar"/>
+	<classpathentry kind="lib" path="Lib/slf4j.jar"/>
+	<classpathentry kind="lib" path="Lib/extentreports-java-2.41.0-beta4.jar"/>
+	<classpathentry kind="lib" path="Lib/freemarker-2.3.23.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

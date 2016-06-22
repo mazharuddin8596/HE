@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Integrator suite 1]">
+  <parameter name="browser" value="chrome"/>
+  <test name="Regression suite 1(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="test.Basic">
+        <methods>
+          <include name="main"/>
+          <include name="browsercheck"/>
+        </methods>
+      </class> <!-- test.Basic -->
+    </classes>
+  </test> <!-- Regression suite 1(failed) -->
+</suite> <!-- Failed suite [Integrator suite 1] -->

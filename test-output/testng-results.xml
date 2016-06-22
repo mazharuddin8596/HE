@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="CEGA suite 1" duration-ms="44704" started-at="2016-06-21T08:10:40Z" finished-at="2016-06-21T08:11:25Z">
+    <groups>
+    </groups>
+    <test name="Phase 1" duration-ms="44704" started-at="2016-06-21T08:10:40Z" finished-at="2016-06-21T08:11:25Z">
+      <class name="com.test.test1">
+        <test-method status="PASS" signature="browsercheck(java.lang.String)[pri:0, instance:com.test.test1@17ed40e0]" name="browsercheck" is-config="true" duration-ms="3358" started-at="2016-06-21T13:40:37Z" finished-at="2016-06-21T13:40:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browsercheck -->
+        <test-method status="PASS" signature="main()[pri:0, instance:com.test.test1@17ed40e0]" name="main" duration-ms="44692" started-at="2016-06-21T13:40:40Z" finished-at="2016-06-21T13:41:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- main -->
+      </class> <!-- com.test.test1 -->
+    </test> <!-- Phase 1 -->
+  </suite> <!-- CEGA suite 1 -->
+</testng-results>

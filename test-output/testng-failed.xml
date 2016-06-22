@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [CEGA suite 1]">
+  <parameter name="browser" value="chrome"/>
+  <parameter name="TestingType" value="sanity.html"/>
+  <test name="Phase 1(failed)">
+    <classes>
+      <class name="com.test.test1">
+        <methods>
+          <include name="browsercheck"/>
+          <include name="main"/>
+        </methods>
+      </class> <!-- com.test.test1 -->
+    </classes>
+  </test> <!-- Phase 1(failed) -->
+</suite> <!-- Failed suite [CEGA suite 1] -->
