@@ -390,7 +390,7 @@ public class HECustomLibraries
 		{
 
 		case "Settings":
-			l.Locator(driver.findElement(By.cssSelector("li[title='Settings']"))).click();
+			driver.findElement(By.cssSelector("li[title='Settings']")).click();
 			break;
 
 		case "History":
@@ -411,12 +411,16 @@ public class HECustomLibraries
 			driver.findElement(By.cssSelector("span[ng-click='settingsctrl.changeNSAccount()']")).click();
 			break;
 
-		case "sender":
+		case "Sender":
 			driver.findElement(By.cssSelector("a.sender-btn")).click();
 			break;
 
-		case "contextual":
+		case "Contextual":
 			driver.findElement(By.cssSelector("a.contextual-btn")).click();
+			break;
+			
+		case "SearchBox":
+			driver.findElement(By.cssSelector("input[placeholder='Search Records']")).click();
 			break;
 
 		case "IncludeAttachment_Uncheck":
@@ -473,7 +477,7 @@ public class HECustomLibraries
 		// Thread.sleep(9000);
 	}
 
-	public String compose(WebDriver driver, String recipient, String subject, Boolean inlineImage, Boolean Attachments, List<String> fileList, boolean celigoSend, ExtentTest logger) throws IOException, AWTException
+	public String compose(WebDriver driver, String recipient,String Cc,String Bcc, String subject, Boolean inlineImage, Boolean Attachments, List<String> fileList, boolean celigoSend, ExtentTest logger) throws IOException, AWTException
 	{
 		String compose_msg_url = "";
 		try
@@ -486,6 +490,14 @@ public class HECustomLibraries
 			l.Locator(driver.findElement(By.cssSelector(obj.getProperty("to")))).sendKeys(recipient);
 			logger.log(LogStatus.INFO, "Entering recipient as" + recipient);
 
+			
+			driver.findElement(By.xpath("//span[text()='Cc']")).click();
+			driver.switchTo().activeElement().sendKeys(Cc);
+			
+			
+			driver.findElement(By.xpath("//span[text()='Bcc']")).click();
+			driver.switchTo().activeElement().sendKeys(Bcc);
+			
 			//Thread.sleep(2000);
 			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
 
@@ -683,6 +695,7 @@ public class HECustomLibraries
 	 */
 	public List<String> globalSearch(String s, WebDriver driver) throws JSONException
 	{
+		driver.switchTo().frame(Login.NsFrame);
 		System.out.println("global search");
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		String script = "return JSON.stringify(nlapiSearchGlobal( '" + s
@@ -694,7 +707,7 @@ public class HECustomLibraries
 		System.out.println(a.length());
 		for (int i = 0; i < a.length(); ++i)
 		{
-			// System.out.println(a.get(i));
+			 System.out.println(a.get(i));
 			if (a.getJSONObject(i).getString("type").equals("file"))
 			{
 				// System.out.println("file type");
@@ -709,7 +722,6 @@ public class HECustomLibraries
 				Search_data.add((value));
 			}
 		}
-		// System.out.println(Search_data);
 		return Search_data;
 	}
 

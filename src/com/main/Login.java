@@ -292,7 +292,10 @@ public class Login
 			{
 				WebElement home = driver.findElement(By.cssSelector("li[title='Home']"));
 				if (home.isDisplayed())
+				{
+					System.out.println("Home page is displayed");
 					break;
+				}
 			}
 			catch (Exception e)
 			{
