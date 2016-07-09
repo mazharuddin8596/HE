@@ -7,8 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 import javax.imageio.ImageIO;
@@ -43,20 +41,22 @@ public class test1
 		// ArrayList<String> attechedlist=new ArrayList<String>();
 		logger = Login.report.startTest("Attaching mail to Multiple record with attachments");
 		l.closeOtherTabs();
-		//l.NsLogin(data.getProperty("Emailid"), data.getProperty("pwd"), logger);
 		driver = l.getDriver();
+		l.NsLogin(data.getProperty("Emailid"), data.getProperty("pwd"), logger);
 		l.gmailLogin(logger);
-		List<String> fileList = new ArrayList<String>();
-		//hcl.startVerification(driver, attechedlist, subject, attachment_list, include_attachments_checkbox, logger);
-		hcl.compose(driver, "maz@celigo.in","","", "something", false, false, fileList, false, logger);
-		driver.get("https://mail.google.com/mail/u/0/#inbox/1557269e96d22acc");
-		// driver.switchTo().frame(Login.NsFrame);
+		//Thread.sleep(2000);
+		// List<String> fileList = new ArrayList<String>();
+		System.out.println("navigate to url");
+		driver.navigate().to("https://mail.google.com/mail/u/0/#inbox/1559f6e9d2ec3a2c");
+		System.out.println(driver.getCurrentUrl());
 		System.out.println(Login.app_frame);
 		driver.switchTo().frame(Login.app_frame);
 		System.out.println(Login.app_frame);
 		hcl.click(driver, "Home");
 		hcl.click(driver, "searchBox");
 		driver.switchTo().activeElement().sendKeys("mazharuddin");
+		
+		////div[contains(.,'Hello Justin')]
 
 	}
 

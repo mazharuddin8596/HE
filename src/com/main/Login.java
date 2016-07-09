@@ -112,17 +112,17 @@ public class Login
 	{
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")
 				+ "//Lib//chromedriver.exe");
-	
+
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("load-extension="
 				+ obj.getProperty("load-extension"));
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-	
+
 		LoggingPreferences logPrefs = new LoggingPreferences();
 		logPrefs.enable(LogType.BROWSER, Level.ALL);
 		capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
-	
+
 		driver = new ChromeDriver(capabilities);
 		setDriver(driver);
 		driver.manage().window().maximize();
@@ -132,40 +132,40 @@ public class Login
 	public void NsLogin(String uname, String pwd, ExtentTest logger) throws Exception
 	{
 		driver.navigate().to("https://system.na1.netsuite.com/app/center/card.nl?sc=-29&whence=");
-		if (!(driver.getTitle().contains("Home")&&driver.getTitle().contains("TSTDRV1069573")))
+		if (!(driver.getTitle().contains("Home") && driver.getTitle().contains("TSTDRV1069573")))
 		{
 			Thread.sleep(1000);
 			logger.log(LogStatus.INFO, "Opening Netsuite URL");
 			driver.navigate().to(obj.getProperty("Ns_Url"));
 			Thread.sleep(2000);
-	
+
 			logger.log(LogStatus.INFO, "Inserting Netsuite Username : " + uname);
 			driver.findElement(By.name(obj.getProperty("email"))).sendKeys(uname);
-	
+
 			logger.log(LogStatus.INFO, "Inserting Netsuite Password : " + pwd);
 			driver.findElement(By.name(obj.getProperty("pwd"))).sendKeys(pwd);
-	
+
 			logger.log(LogStatus.INFO, "Clicking on Submit button");
-			//driver.findElement(By.name(obj.getProperty("submit"))).click();
-			
+			// driver.findElement(By.name(obj.getProperty("submit"))).click();
+
 			driver.findElement(By.cssSelector("input[value='Login']")).click();
-	
+
 			Thread.sleep(1000);
 			String title = driver.getTitle();
 			if (title.equals("Authentication Required"))
 			{
 				logger.log(LogStatus.INFO, "Providing Additional Authentication");
 				String question = driver.findElement(By.xpath(obj.getProperty("question"))).getText();
-	
+
 				// logger.log(LogStatus.INFO, "Security Question :" + question);
 				String[] dataRows = question.split(" ");
 				String string = dataRows[dataRows.length - 1];
 				String str = (String) string.substring(0, string.length() - 1);
 				System.out.println(str);
-	
+
 				// logger.log(LogStatus.INFO, "Security Answer :" + str);
 				driver.findElement(By.name(obj.getProperty("answer"))).sendKeys(str);
-	
+
 				// logger.log(LogStatus.INFO, "Clicking Submit button");
 				driver.findElement(By.name(obj.getProperty("submitter"))).click();
 			}
@@ -174,7 +174,7 @@ public class Login
 		{
 			logger.log(LogStatus.INFO, "Netsuite Session available, Skipped login ");
 		}
-	
+
 	}
 
 	public void gmailLogin(ExtentTest logger) throws IOException
@@ -187,23 +187,26 @@ public class Login
 				logger.log(LogStatus.INFO, "Gmail URL");
 				driver.navigate().to(obj.getProperty("GmailURL"));
 				setGmailWindow(driver.getWindowHandle());
-	
+				System.out.println(Login.getGmailWindow());
+
 				logger.log(LogStatus.INFO, "Gmail Username : "
 						+ data.getProperty("Gmail_user"));
 				Locator(driver.findElement(By.name(obj.getProperty("Gmail_user")))).sendKeys(data.getProperty("Gmail_user"));
-	
+
 				logger.log(LogStatus.INFO, "Next button");
 				Locator(driver.findElement(By.id(obj.getProperty("Gmail_NextButton")))).click();
-	
-				logger.log(LogStatus.INFO, "Gmail Username : "
+
+				logger.log(LogStatus.INFO, "Gmail Password : "
 						+ data.getProperty("Gmail_Password"));
 				Locator(driver.findElement(By.id(obj.getProperty("Gmail_Password")))).sendKeys(data.getProperty("Gmail_Password"));
-	
+
 				logger.log(LogStatus.INFO, "Sign in button");
 				Locator(driver.findElement(By.id(obj.getProperty("SignInButton")))).click();
 				System.out.println("login success");
 			}
-			gmailWindow = driver.getWindowHandle();
+
+			driver.switchTo().window(Login.getGmailWindow());
+			System.out.println(gmailWindow);
 			setframes();
 			appLoaded(driver);
 		}
@@ -211,7 +214,7 @@ public class Login
 		{
 			e.printStackTrace();
 		}
-	
+
 	}
 
 	public void LoadPropertyFiles() throws IOException
@@ -233,25 +236,25 @@ public class Login
 
 	public void appLogin(String un, String password, ExtentTest logger) throws Throwable
 	{
-	
+
 		System.out.println("app login method");
 		Thread.sleep(2000);
 		boolean click = false;
-	
+
 		Actions action = new Actions(driver);
 		WebElement username = driver.findElement(By.cssSelector("div#cega-body div.nsLoginBox input[ng-model='nsloginctrl.username']"));
 		username.clear();
 		logger.log(LogStatus.INFO, "Inserted Username : " + un);
 		username.sendKeys(un);
-	
+
 		WebElement pwd = driver.findElement(By.cssSelector("div#cega-body div.nsLoginBox input[ng-model='nsloginctrl.password']"));
 		pwd.clear();
 		logger.log(LogStatus.INFO, "Inserted password : " + password);
 		pwd.sendKeys(password);
-	
+
 		WebElement signin = driver.findElement(By.cssSelector("a#signin"));
 		logger.log(LogStatus.INFO, "Clicking App SignIn button");
-	
+
 		try
 		{
 			action.moveToElement(signin).click().perform();
@@ -266,7 +269,7 @@ public class Login
 		{
 			driver.findElement(By.id("signin")).click();
 		}
-	
+
 	}
 
 	public void appLoaded(WebDriver driver)
@@ -276,8 +279,6 @@ public class Login
 		do
 		{
 			Time += 1;
-			//driver.switchTo().window(Login.getGmailWindow());
-	
 			try
 			{
 				WebElement username = driver.findElement(By.cssSelector("div#cega-body div.nsLoginBox input[ng-model='nsloginctrl.username']"));
@@ -301,16 +302,18 @@ public class Login
 			{
 				System.out.println("home page is not displayed");
 			}
-	
+			System.out.println("In while loop " + Time);
 		} while (Time < 50);
-		driver.switchTo().window(gmailWindow);
+		driver.switchTo().window(Login.getGmailWindow());
+		System.out.println("App loaded ");
+		
 	}
 
 	public void NsLogout() throws InterruptedException
 	{
 		driver.get("https://system.na1.netsuite.com/pages/nllogoutnoback.jsp");
 		System.out.println("Netsuite sigOut");
-	
+
 	}
 
 	public void gmail_Logout() throws InterruptedException
@@ -324,7 +327,7 @@ public class Login
 	public void changeNsRole(WebDriver driver, String Account, ExtentTest logger)
 	{
 		driver.navigate().to("https://system.na1.netsuite.com/app/center/card.nl?sc=-29&t=dA7K232gp&loginSucceeded=T&whence=");
-	
+
 		logger.log(LogStatus.INFO, "Changing Role");
 		driver.findElement(By.cssSelector("div#spn_cRR_d1")).click();
 		List<WebElement> roles = driver.findElements(By.cssSelector("table#div__bodytab tr"));
@@ -334,11 +337,11 @@ public class Login
 		for (int i = 1; i < roles.size(); i++)
 		{
 			List<WebElement> tds = (List<WebElement>) roles.get(i).findElements(By.tagName("td"));
-	
+
 			if (td2 > 0)
 			{
 				String account = tds.get(2).getText();
-				
+
 				if (account.equals(selrole))
 				{
 					logger.log(LogStatus.INFO, "switching to role : " + selrole);
@@ -349,7 +352,7 @@ public class Login
 				}
 			}
 			td2++;
-	
+
 		}
 	}
 
@@ -373,11 +376,11 @@ public class Login
 		driver.switchTo().window(allTabs.get(0));
 		driver.manage().window().maximize();
 		gmailWindow = driver.getWindowHandle();
-	
+
 	}
 
 	public void setframes() throws Exception
-	{	
+	{
 		Thread.sleep(5000);
 		// System.out.println("gmail window driver " + driver); Gmail window
 		setApp_frame(switchFrame("class", obj.getProperty("App")));
@@ -390,7 +393,7 @@ public class Login
 
 	public WebElement switchFrame(String att, String attValue) throws Exception
 	{
-		
+
 		System.out.println("changing frame");
 		// Searching app frame
 		List<WebElement> allframes = driver.findElements(By.tagName("iframe"));
@@ -398,7 +401,7 @@ public class Login
 		{
 			if ((frames.getAttribute(att)).equals(attValue))
 			{
-				System.out.println("frame selected" + attValue);
+				System.out.println("frame selected " + attValue);
 
 				return frames;
 			}

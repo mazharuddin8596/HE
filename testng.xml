@@ -5,14 +5,13 @@
 	<parameter name="TestingType" value="sanity.html" />
 	<test name="Phase 1">
 		<classes>
-			<!-- <class name="com.test.Login_Validation" />
+			<!-- <class name="com.test.Login_Validation" /> 
 			<class name="com.test.Attach_mail_and_Verify_In_NS" />
 			<methods>
 				<include name="attach_To_Single_RecordFrom_SenderList_With_Attachments" />
 			</methods> -->
-			<class name="com.test.test1"/>
-			
-			
+			<class name="com.test.test1" />
+
 		</classes>
 	</test>
 </suite> 

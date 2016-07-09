@@ -9,10 +9,13 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.main.HECustomLibraries;
 import com.main.Login;
+import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -27,6 +30,18 @@ public class Attach_mail_and_Verify_In_NS
 	Properties data = l.getData();
 	// boolean escape = false;
 	List<String> fileList;
+	
+	
+	@Parameters({ "browser", "TestingType" })
+	@BeforeSuite
+	public void InitialSetup(String browser, String TestingType) throws Exception
+	{
+		l.beforeTest(browser);
+		Login.report = new ExtentReports(System.getProperty("user.dir")
+				+ "\\Reports\\" + TestingType);
+		driver = l.getDriver();
+		l.closeOtherTabs();
+	}
 
 	public void attach_and_Verify(boolean inline, boolean attachments, String of, int how_many_records, boolean include_attachments_checkbox) throws Throwable
 	{

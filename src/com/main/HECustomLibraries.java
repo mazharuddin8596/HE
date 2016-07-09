@@ -420,7 +420,7 @@ public class HECustomLibraries
 			break;
 			
 		case "SearchBox":
-			driver.findElement(By.cssSelector("input[placeholder='Search Records']")).click();
+			driver.findElement(By.cssSelector("input[id='additionalsearch']")).click();
 			break;
 
 		case "IncludeAttachment_Uncheck":
